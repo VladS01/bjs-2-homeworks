@@ -2,12 +2,10 @@
 function solveEquation(a, b, c) {
   let arr = [];
   let D = Math.pow(b, 2) - 4*a*c
-  if (D < 0) {
-    arr.push();
-  } else if (D == 0) {
+  if (D == 0) {
     let x = -b/(2*a)
     arr.push(x);
-  } else {
+  } else if (D > 0) {
     let root1 = (-b + Math.sqrt(D))/(2*a);
     let root2 = (-b - Math.sqrt(D))/(2*a);
     arr.push(root1, root2);
@@ -35,7 +33,7 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
     );
     
     // 5. Рассчитываем общую сумму выплат
-    const totalPayment = payment * countMonths + contribution;
+    const totalPayment = payment * countMonths;
     
     // 6. Округляем результат до двух знаков после запятой
     return parseFloat(totalPayment.toFixed(2));
